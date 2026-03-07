@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZOVAC — Operational Intelligence through AI & Custom Software</title>
+  <meta name="description" content="ZOVAC diagnoses operational bottlenecks and implements AI-powered software solutions tailored to your workflow. From problem to solution — end to end." />
+  <meta name="keywords" content="AI consulting, operational efficiency, custom software, AI systems integrator, business automation, workflow optimization, AI implementation" />
+  <meta name="author" content="ZOVAC" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://zovac.ai/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zovac.ai/" />
+  <meta property="og:title" content="ZOVAC — Operational Intelligence through AI & Custom Software" />
+  <meta property="og:description" content="We diagnose operational bottlenecks and build AI-powered systems that remove them. End to end." />
+  <meta property="og:image" content="https://zovac.ai/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZOVAC — AI-Powered Operational Systems" />
+  <meta name="twitter:description" content="Diagnosis → Strategy → Implementation. AI systems built for real business outcomes." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZOVAC","url":"https://zovac.ai","email":"zovac.ai@gmail.com","description":"ZOVAC diagnoses operational bottlenecks and implements AI-powered software solutions tailored to client workflows.","sameAs":["https://www.linkedin.com/company/zovac/"],"serviceType":["AI Consulting","Custom Software Development","Operational Intelligence","Business Automation"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Barlow:wght@500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── THEME VARS ── */
+    :root, [data-theme="dark"] {
+      --bg:          #000000;
+      --bg-2:        #111111;
+      --bg-3:        #1a1a1a;
+      --text:        #ffffff;
+      --text-dim:    rgba(255,255,255,0.50);
+      --text-faint:  rgba(255,255,255,0.25);
+      --border:      rgba(255,255,255,0.06);
+      --border-2:    rgba(255,255,255,0.10);
+      --input-bg:    #000000;
+      --logo-color:  #ffffff;
+      --grey-4:      #555555;
+      --grey-5:      #888888;
+      --red:         #E53935;
+      --red-dim:     #c62828;
+      --font-display:'Barlow', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --font-mono:   'IBM Plex Mono', monospace;
+    }
+    [data-theme="light"] {
+      --bg:          #ffffff;
+      --bg-2:        #f4f4f4;
+      --bg-3:        #ebebeb;
+      --text:        #0a0a0a;
+      --text-dim:    rgba(10,10,10,0.55);
+      --text-faint:  rgba(10,10,10,0.28);
+      --border:      rgba(0,0,0,0.07);
+      --border-2:    rgba(0,0,0,0.13);
+      --input-bg:    #f8f8f8;
+      --logo-color:  #0a0a0a;
+      --grey-4:      #aaaaaa;
+      --grey-5:      #777777;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; transition: background 0.4s, color 0.4s; }
+
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9997; opacity: 0.4; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--red); }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
+    nav.scrolled { background: var(--bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1rem 4rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; font-family: 'Michroma', sans-serif; font-weight: 400; font-size: 1.3rem; letter-spacing: 0.1em; text-decoration: none; color: var(--logo-color); text-transform: uppercase; transition: color 0.4s; }
+    .logo-dot { display: inline-block; width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-left: 4px; margin-bottom: -1px; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--red); transition: width 0.3s ease; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { background: var(--red) !important; color: #fff !important; padding: 0.6rem 1.4rem; border-radius: 3px; font-weight: 500 !important; transition: background 0.3s, transform 0.2s !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--red-dim) !important; transform: translateY(-1px); }
+    .nav-linkedin { display: flex; align-items: center; opacity: 0.6; transition: opacity 0.3s; }
+    .nav-linkedin:hover { opacity: 1; }
+    .nav-linkedin svg { width: 18px; height: 18px; fill: var(--text); }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-2); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.3s, background 0.3s, transform 0.3s; flex-shrink: 0; position: relative; overflow: hidden; }
+    .theme-toggle:hover { border-color: var(--red); background: rgba(229,57,53,0.08); transform: rotate(18deg); }
+    .theme-toggle .icon-sun, .theme-toggle .icon-moon { position: absolute; width: 15px; height: 15px; color: var(--text); transition: opacity 0.3s, transform 0.3s; }
+    [data-theme="dark"]  .icon-sun  { opacity: 1;  transform: scale(1);   }
+    [data-theme="dark"]  .icon-moon { opacity: 0;  transform: scale(0.4); }
+    [data-theme="light"] .icon-sun  { opacity: 0;  transform: scale(0.4); }
+    [data-theme="light"] .icon-moon { opacity: 1;  transform: scale(1);   }
+
+    /* ── HERO ── */
+    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 8rem 4rem 4rem; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(229,57,53,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 20%, rgba(229,57,53,0.05) 0%, transparent 60%); }
+    [data-theme="light"] .hero-bg { background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(229,57,53,0.04) 0%, transparent 70%); }
+    .hero-grid-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 80%); }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--red); }
+    .hero-title { font-family: var(--font-display); font-size: clamp(3.5rem, 8vw, 7.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 2rem; }
+    .hero-title .line { display: block; overflow: hidden; }
+    .hero-title .line-inner { display: block; opacity: 0; transform: translateY(100%); animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .hero-title .line:nth-child(1) .line-inner { animation-delay: 0.4s; }
+    .hero-title .line:nth-child(2) .line-inner { animation-delay: 0.55s; }
+    .hero-title .line:nth-child(3) .line-inner { animation-delay: 0.7s; }
+    .hero-title .accent { color: var(--red); }
+    .hero-sub { font-size: 1.15rem; color: var(--text-dim); max-width: 560px; line-height: 1.8; margin-bottom: 3rem; font-weight: 300; opacity: 0; animation: fadeUp 0.8s ease 1s forwards; }
+    .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards; }
+    .btn-primary { background: var(--red); color: #fff; padding: 0.9rem 2.2rem; border: none; border-radius: 3px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; cursor: pointer; text-decoration: none; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; display: inline-flex; align-items: center; gap: 0.6rem; }
+    .btn-primary:hover { background: var(--red-dim); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(229,57,53,0.3); }
+    .btn-ghost { color: var(--text-dim); padding: 0.9rem 2rem; border: 1px solid var(--border-2); border-radius: 3px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 400; cursor: pointer; text-decoration: none; transition: border-color 0.3s, color 0.3s, transform 0.2s; display: inline-flex; align-items: center; gap: 0.6rem; }
+    .btn-ghost:hover { border-color: rgba(229,57,53,0.5); color: var(--text); transform: translateY(-2px); }
+    .hero-stats { position: absolute; right: 4rem; bottom: 4rem; display: flex; gap: 3rem; opacity: 0; animation: fadeUp 0.8s ease 1.5s forwards; }
+    .stat-item { text-align: right; }
+    .stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .stat-num span { color: var(--red); }
+    .stat-label { font-size: 0.72rem; color: var(--text-faint); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+    .hero-scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeIn 1s ease 2s forwards; }
+    .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--red), transparent); animation: scrollLine 2s ease infinite; }
+    @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 4rem; position: relative; }
+    .section-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: var(--text); }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-dim); max-width: 520px; line-height: 1.8; font-weight: 300; }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--bg); }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
+    .problem-cards { display: flex; flex-direction: column; gap: 1px; }
+    .problem-card { background: var(--bg-2); border: 1px solid var(--border); padding: 2rem 2.5rem; position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s; cursor: default; }
+    .problem-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--red); transform: scaleY(0); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom; }
+    .problem-card:hover::before { transform: scaleY(1); }
+    .problem-card:hover { border-color: var(--border-2); background: var(--bg-3); }
+    .problem-card-num { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.8rem; text-transform: uppercase; }
+    .problem-card-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .problem-card-company { font-size: 0.78rem; color: var(--grey-5); margin-bottom: 0.8rem; font-style: italic; }
+    .problem-card-body { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
+    .problem-card-result { margin-top: 1rem; padding: 0.6rem 1rem; background: rgba(229,57,53,0.06); border: 1px solid rgba(229,57,53,0.15); border-radius: 2px; font-size: 0.8rem; color: rgba(229,57,53,0.8); font-family: var(--font-mono); }
+    .problem-statement { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 2rem; }
+    .problem-statement .dim { color: var(--text-faint); }
+    .problem-statement .highlight { color: var(--red); }
+    .problem-divider { width: 40px; height: 2px; background: var(--red); margin-bottom: 1.5rem; }
+    .problem-text { font-size: 1rem; color: var(--text-dim); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+
+    /* ── PROCESS ── */
+    #process { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .process-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 2rem; left: 2rem; right: 2rem; height: 1px; background: linear-gradient(90deg, var(--red) 0%, rgba(229,57,53,0.2) 100%); z-index: 0; }
+    .step { position: relative; z-index: 1; padding: 0 1.5rem 2.5rem; text-align: center; }
+    .step-num-wrap { width: 4rem; height: 4rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--border-2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; position: relative; transition: border-color 0.4s, transform 0.4s; }
+    .step:hover .step-num-wrap { border-color: var(--red); transform: translateY(-4px); }
+    .step-num-wrap.active { border-color: var(--red); background: rgba(229,57,53,0.12); }
+    .step-num { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--text); }
+    .step-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.5rem; color: var(--text); }
+    .step-desc { font-size: 0.78rem; color: var(--text-faint); line-height: 1.6; }
+    .not-selling { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 4rem; border: 1px solid var(--border-2); }
+    .not-selling-col { padding: 2.5rem; }
+    .not-selling-col:first-child { border-right: 1px solid var(--border-2); opacity: 0.5; }
+    .ns-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--grey-5); }
+    .not-selling-col:last-child .ns-label { color: var(--red); }
+    .ns-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--text-dim); }
+    .ns-x { color: var(--grey-4); font-size: 1rem; }
+    .ns-check { color: var(--red); font-size: 1rem; }
+
+    /* ── LAB ── */
+    #lab { background: var(--bg); }
+    .lab-header { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 4rem; }
+    .lab-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.2); padding: 0.4rem 0.9rem; border-radius: 2px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; color: var(--red); text-transform: uppercase; }
+    .lab-tag-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 1.5s ease infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+    .lab-coming-soon { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text-faint); letter-spacing: 0.1em; }
+    .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-bottom: 1px; }
+    .lab-card { background: var(--bg-2); padding: 3rem; position: relative; overflow: hidden; transition: background 0.4s; }
+    .lab-card:hover { background: var(--bg-3); }
+    .lab-card-soon { grid-column: 1 / -1; background: var(--bg-2); padding: 4rem; position: relative; overflow: hidden; border: 1px solid rgba(229,57,53,0.15); }
+    .lab-card-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(229,57,53,0.05) 0%, transparent 70%); pointer-events: none; }
+    .lab-card-num { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--grey-5); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .lab-card-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.8rem; line-height: 1.1; color: var(--text); }
+    .lab-card-sub { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 2rem; max-width: 480px; }
+    .lab-metrics { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .lab-metric-val { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--text); }
+    .lab-metric-val span { color: var(--red); }
+    .lab-metric-label { font-size: 0.72rem; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+    .lab-features { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
+    .lab-feature { display: flex; align-items: center; gap: 0.7rem; font-size: 0.83rem; color: var(--text-dim); }
+    .lab-feature::before { content: '→'; color: var(--red); font-size: 0.75rem; }
+    .lab-teaser-inner { position: relative; z-index: 1; }
+    .lab-teaser-eyebrow { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .lab-teaser-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: var(--text); }
+    .lab-teaser-title .dim { color: var(--text-faint); }
+    .lab-teaser-body { font-size: 1rem; color: var(--text-dim); max-width: 600px; line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+    .lab-teaser-cta { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--red); text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(229,57,53,0.3); padding-bottom: 2px; transition: border-color 0.3s; }
+    .lab-teaser-cta:hover { border-color: var(--red); }
+    .data-particles { position: absolute; right: 3rem; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; opacity: 0.4; }
+    .dp { width: 6px; height: 6px; background: var(--red); border-radius: 1px; animation: dpFlicker calc(1s + var(--d)) ease infinite; }
+    @keyframes dpFlicker { 0%, 100% { opacity: 0.2; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(calc(1 + var(--h))); } }
+
+    /* ── RESULTS ── */
+    #results { background: var(--bg-2); border-top: 1px solid var(--border); }
+    .case-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 4rem; }
+    .case-card { background: var(--bg); border: 1px solid var(--border-2); padding: 3rem; position: relative; overflow: hidden; }
+    .case-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); }
+    .case-tag { display: inline-block; background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.2); padding: 0.3rem 0.8rem; border-radius: 2px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--red); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .case-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; color: var(--text); }
+    .case-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; }
+    .case-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); margin-bottom: 2rem; }
+    .case-metric { background: var(--bg-3); padding: 1.5rem; }
+    .case-metric-val { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .case-metric-val span { color: var(--red); }
+    .case-metric-label { font-size: 0.72rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+    .case-features { display: flex; flex-direction: column; gap: 0.6rem; }
+    .case-feature-item { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
+    .case-feature-item::before { content: '▸'; color: var(--red); margin-top: 0.05rem; flex-shrink: 0; }
+    .case-quote { border-left: 2px solid var(--red); padding: 1.5rem 2rem; margin-bottom: 2rem; background: rgba(229,57,53,0.03); }
+    .case-quote-text { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; line-height: 1.5; color: var(--text-dim); margin-bottom: 0.8rem; font-style: italic; }
+    .case-quote-attr { font-size: 0.75rem; color: var(--text-faint); letter-spacing: 0.05em; }
+    .case-more { background: rgba(229,57,53,0.05); border: 1px solid rgba(229,57,53,0.12); padding: 2rem; border-radius: 2px; }
+    .case-more-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+    .case-more-text { font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; }
+    .results-bar-section { margin-top: 3rem; }
+    .result-bar-item { margin-bottom: 1.5rem; }
+    .result-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .result-bar-name { font-size: 0.82rem; color: var(--text-dim); }
+    .result-bar-pct { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .result-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .result-bar-fill { height: 100%; background: linear-gradient(90deg, var(--red), rgba(229,57,53,0.4)); border-radius: 2px; width: 0; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .result-bar-fill.animated { width: var(--w); }
+
+    /* ── BELIEFS ── */
+    #beliefs { background: var(--bg); }
+    .beliefs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 4rem; }
+    .belief-card { background: var(--bg); padding: 3rem 2.5rem; position: relative; transition: background 0.3s; }
+    .belief-card:hover { background: var(--bg-2); }
+    .belief-num { font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: rgba(229,57,53,0.08); line-height: 1; margin-bottom: 1rem; transition: color 0.4s; }
+    .belief-card:hover .belief-num { color: rgba(229,57,53,0.15); }
+    .belief-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; color: var(--text); }
+    .belief-body { font-size: 0.85rem; color: var(--text-dim); line-height: 1.75; }
+    .manifesto { margin-top: 5rem; padding: 4rem; background: var(--bg-2); border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .manifesto::before { content: '"'; position: absolute; top: -1rem; left: 2rem; font-family: var(--font-display); font-size: 12rem; font-weight: 800; color: rgba(229,57,53,0.05); line-height: 1; }
+    .manifesto-text { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.4; color: var(--text-dim); max-width: 800px; position: relative; z-index: 1; }
+    .manifesto-text .red { color: var(--red); }
+
+    /* ── COMPARE ── */
+    #compare { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 7rem 4rem; }
+    .compare-table { margin-top: 4rem; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th { padding: 1.2rem 1.5rem; text-align: left; font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; border-bottom: 1px solid var(--border-2); color: var(--text-dim); }
+    th.zovac-col { color: var(--text); background: rgba(229,57,53,0.06); }
+    th.zovac-col span { color: var(--red); }
+    td { padding: 1.1rem 1.5rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+    td:first-child { color: var(--text); font-weight: 500; }
+    td.zovac-col { background: rgba(229,57,53,0.04); color: var(--text); font-weight: 500; }
+    .check-yes { color: var(--red); }
+    .check-no { color: var(--text-faint); }
+    tr:hover td { background: rgba(229,57,53,0.02); }
+    tr:hover td.zovac-col { background: rgba(229,57,53,0.07); }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; margin-top: 4rem; }
+    .faq-sticky { position: sticky; top: 6rem; }
+    .faq-big-text { font-family: var(--font-display); font-size: 5rem; font-weight: 800; line-height: 0.9; color: var(--border-2); }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+    .faq-question { padding: 1.5rem 0; font-family: var(--font-display); font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.3s; color: var(--text-dim); }
+    .faq-question:hover, .faq-question.open { color: var(--text); }
+    .faq-icon { width: 24px; height: 24px; border: 1px solid var(--border-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; color: var(--red); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s; }
+    .faq-question.open .faq-icon { transform: rotate(45deg); border-color: var(--red); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .faq-answer.open { max-height: 400px; }
+    .faq-answer-inner { padding: 0 0 1.5rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.8; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg-2); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: start; margin-top: 4rem; }
+    .contact-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 2rem; color: var(--text); }
+    .contact-title .accent { color: var(--red); }
+    .contact-text { font-size: 1rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-info-item { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--text-dim); }
+    .contact-info-item .icon { width: 38px; height: 38px; border: 1px solid var(--border-2); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: var(--red); }
+    .contact-info-item a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    .contact-info-item a:hover { color: var(--red); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; font-family: var(--font-mono); }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--border-2); padding: 0.9rem 1.1rem; color: var(--text); font-family: var(--font-body); font-size: 0.9rem; border-radius: 2px; outline: none; transition: border-color 0.3s, background 0.4s, color 0.4s; appearance: none; }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(229,57,53,0.5); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-faint); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .calendly-section { margin-top: 3rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 4rem 4rem 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand-name { font-family: 'Michroma', sans-serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; color: var(--logo-color); transition: color 0.4s; }
+    .footer-brand-name .footer-logo-dot { display: inline-block; width: 11px; height: 11px; background: var(--red); border-radius: 50%; margin-left: 4px; margin-bottom: -2px; flex-shrink: 0; }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-faint); line-height: 1.7; max-width: 260px; }
+    .footer-contact-line { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.2rem; }
+    .footer-contact-item { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-faint); text-decoration: none; transition: color 0.3s; }
+    .footer-contact-item:hover { color: var(--text); }
+    .footer-contact-item svg { color: var(--red); flex-shrink: 0; }
+    .footer-col-title { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.2rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-faint); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.75rem; color: var(--text-faint); }
+    .footer-legal { display: flex; gap: 2rem; }
+    .footer-legal a { font-size: 0.75rem; color: var(--text-faint); text-decoration: none; transition: color 0.3s; }
+    .footer-legal a:hover { color: var(--text-dim); }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── FLOATING CTA ── */
+    .floating-cta { position: fixed; bottom: 2rem; right: 2rem; background: var(--red); color: #fff; padding: 0.9rem 1.6rem; border-radius: 3px; font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; text-decoration: none; box-shadow: 0 8px 30px rgba(229,57,53,0.35); z-index: 500; transition: transform 0.3s, box-shadow 0.3s, opacity 0.4s; opacity: 0; transform: translateY(20px); display: flex; align-items: center; gap: 0.5rem; }
+    .floating-cta.visible { opacity: 1; transform: translateY(0); }
+    .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(229,57,53,0.45); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--text); text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu-close { position: absolute; top: 2rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); background: none; border: none; font-family: var(--font-display); transition: color 0.3s; }
+    .mobile-menu-close:hover { color: var(--red); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: transform 0.3s, opacity 0.3s; }
+
+    /* ── FORM POPUP ── */
+    #formPopup { position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--red); color: #fff; padding: 1rem 2rem; border-radius: 3px; font-size: 0.9rem; font-weight: 500; z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); white-space: nowrap; box-shadow: 0 8px 30px rgba(229,57,53,0.4); }
+    #formPopup.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) { .process-steps { grid-template-columns: repeat(3, 1fr); } .process-steps::before { display: none; } .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 900px) { nav { padding: 1.2rem 2rem; } nav.scrolled { padding: 0.9rem 2rem; } .nav-links { display: none; } .hamburger { display: flex; } section { padding: 5rem 2rem; } #hero { padding: 7rem 2rem 4rem; } .hero-stats { display: none; } .problem-grid { grid-template-columns: 1fr; gap: 3rem; } .process-header { grid-template-columns: 1fr; gap: 2rem; } .not-selling { grid-template-columns: 1fr; } .not-selling-col:first-child { border-right: none; border-bottom: 1px solid var(--border-2); } .lab-grid { grid-template-columns: 1fr; } .lab-card-soon { grid-column: auto; } .data-particles { display: none; } .case-grid { grid-template-columns: 1fr; gap: 2rem; } .beliefs-grid { grid-template-columns: 1fr; } .faq-grid { grid-template-columns: 1fr; gap: 2rem; } .contact-grid { grid-template-columns: 1fr; gap: 3rem; } .compare-table { font-size: 0.8rem; } th, td { padding: 0.9rem 0.8rem; } .form-row { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr; } #formPopup { white-space: normal; width: 90%; text-align: center; } }
+    @media (max-width: 600px) { .process-steps { grid-template-columns: 1fr; } .case-metrics { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div id="formPopup">✓ Message received — we'll get back to you soon.</div>
+  <a href="#contact" class="floating-cta" id="floatingCta">Schedule a Call ↗</a>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <a href="#problem" onclick="closeMenu()">Problem</a>
+    <a href="#process" onclick="closeMenu()">How It Works</a>
+    <a href="#lab" onclick="closeMenu()">Lab</a>
+    <a href="#results" onclick="closeMenu()">Results</a>
+    <a href="#beliefs" onclick="closeMenu()">Beliefs</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">ZOVAC<span class="logo-dot"></span></a>
+    <ul class="nav-links">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#lab">Lab</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#beliefs">Beliefs</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li>
+        <a href="https://www.linkedin.com/company/zovac/" target="_blank" rel="noopener" class="nav-linkedin" title="ZOVAC on LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+      <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">AI Systems Integrator · Operational Consultant</div>
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">We diagnose</span></span>
+        <span class="line"><span class="line-inner">operational gaps.</span></span>
+        <span class="line"><span class="line-inner">Then <span class="accent">remove them.</span></span></span>
+      </h1>
+      <p class="hero-sub">Most companies advise. Or build. Or sell software. ZOVAC does all three — diagnosis, strategy, and AI-powered implementation — end to end.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule a Call →</a>
+        <a href="#process" class="btn-ghost">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">38<span>%</span></div><div class="stat-label">Efficiency Gain</div></div>
+      <div class="stat-item"><div class="stat-num">3<span>-in-1</span></div><div class="stat-label">Approach</div></div>
+      <div class="stat-item"><div class="stat-num">AI<span>+</span></div><div class="stat-label">Powered Systems</div></div>
+    </div>
+    <div class="hero-scroll-hint"><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="problem-grid">
+      <div class="problem-cards reveal">
+        <div class="problem-card"><div class="problem-card-num">01 — Consultants</div><div class="problem-card-title">They Analyze. They Report.</div><div class="problem-card-company">McKinsey, Deloitte, BCG</div><div class="problem-card-body">Brilliant at diagnosing the problem. Exceptional reports. Actionable strategies. But when the meeting ends — you're still the one left to build the solution.</div><div class="problem-card-result">Result → You hire a separate dev team anyway</div></div>
+        <div class="problem-card"><div class="problem-card-num">02 — SaaS Tools</div><div class="problem-card-title">They Sell. You Adapt.</div><div class="problem-card-company">HubSpot, Notion, Monday, Salesforce</div><div class="problem-card-body">Generic software built for everyone — which means built perfectly for no one. You spend months forcing your workflow into a tool that was never designed for you.</div><div class="problem-card-result">Result → The tool never fits perfectly</div></div>
+        <div class="problem-card"><div class="problem-card-num">03 — Dev Agencies</div><div class="problem-card-title">They Build. That's It.</div><div class="problem-card-company">Freelancers, Dev Studios</div><div class="problem-card-body">They execute what they're told. Technically excellent, operationally blind. They've never run a business, diagnosed a bottleneck, or thought in systems.</div><div class="problem-card-result">Result → Software that works but doesn't solve anything</div></div>
+      </div>
+      <div class="problem-right reveal reveal-delay-2">
+        <div class="section-label">The Market Gap</div>
+        <div class="problem-statement"><span class="dim">Three players.</span><br/><span class="dim">None of them</span><br/><span class="highlight">solve the real problem.</span></div>
+        <div class="problem-divider"></div>
+        <div class="problem-text">Every growing business hits operational ceilings. Processes slow down. Data piles up. Decisions lag. The consultants tell you why. The tools promise a fix. The devs build what you describe. But the actual problem — operational inefficiency at the workflow level — remains unsolved.</div>
+        <div class="problem-text"><strong style="color:var(--text)">That's the gap ZOVAC was built to close.</strong></div>
+        <a href="#process" class="btn-ghost">See Our Approach →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="process-header">
+      <div class="reveal"><div class="section-label">How It Works</div><h2 class="section-title">Diagnosis.<br/>Strategy.<br/>Implementation.</h2></div>
+      <div class="reveal reveal-delay-2"><p class="section-subtitle">We don't hand you a report and disappear. We don't sell you a tool and leave you to figure it out. We own the outcome — from first diagnosis to a deployed, running system.</p></div>
+    </div>
+    <div class="process-steps reveal">
+      <div class="step"><div class="step-num-wrap active"><div class="step-num">01</div></div><div class="step-title">Understand the Bottleneck</div><div class="step-desc">Deep-dive into your operations. Where does velocity die? Where does data disappear?</div></div>
+      <div class="step"><div class="step-num-wrap"><div class="step-num">02</div></div><div class="step-title">Design the System</div><div class="step-desc">Architecture tailored to your workflow — not a generic template retrofitted.</div></div>
+      <div class="step"><div class="step-num-wrap"><div class="step-num">03</div></div><div class="step-title">Build & Deploy</div><div class="step-desc">Custom software or AI integration — we build and ship it. No handoffs.</div></div>
+      <div class="step"><div class="step-num-wrap"><div class="step-num">04</div></div><div class="step-title">Integrate AI</div><div class="step-desc">AI woven into the workflow — not bolted on top. Intelligent automation where it counts.</div></div>
+      <div class="step"><div class="step-num-wrap"><div class="step-num">05</div></div><div class="step-title">Measure & Scale</div><div class="step-desc">We track real outcomes — efficiency, growth, satisfaction — and iterate.</div></div>
+    </div>
+    <div class="not-selling reveal">
+      <div class="not-selling-col"><div class="ns-label">What we don't sell</div><div class="ns-item"><span class="ns-x">✕</span> Generic software</div><div class="ns-item"><span class="ns-x">✕</span> AI tools as a product</div><div class="ns-item"><span class="ns-x">✕</span> Automation for automation's sake</div><div class="ns-item"><span class="ns-x">✕</span> Consulting reports with no follow-through</div></div>
+      <div class="not-selling-col"><div class="ns-label">What we actually deliver</div><div class="ns-item"><span class="ns-check">✓</span> Operational efficiency, measured</div><div class="ns-item"><span class="ns-check">✓</span> Scalable systems built for your workflow</div><div class="ns-item"><span class="ns-check">✓</span> Growth enablement through intelligent design</div><div class="ns-item"><span class="ns-check">✓</span> End-to-end ownership of the outcome</div></div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="compare">
+    <div class="reveal"><div class="section-label">Competitive Position</div><h2 class="section-title">Why ZOVAC is different</h2></div>
+    <div class="compare-table reveal reveal-delay-1">
+      <table>
+        <thead><tr><th>Capability</th><th>Consultants</th><th>SaaS Tools</th><th>Dev Agencies</th><th class="zovac-col"><span>ZOVAC</span></th></tr></thead>
+        <tbody>
+          <tr><td>Operational diagnosis</td><td class="check-yes">✓</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>Custom system design</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>AI integration</td><td class="check-no">✗</td><td>Partial</td><td>Partial</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>Workflow-native software</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>Outcome ownership</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>Business strategy layer</td><td class="check-yes">✓</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="zovac-col check-yes">✓</td></tr>
+          <tr><td>Measurable ROI tracking</td><td>Partial</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="zovac-col check-yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- LAB -->
+  <section id="lab">
+    <div class="lab-header reveal">
+      <div><div class="section-label">ZOVAC Lab</div><h2 class="section-title">Systems We've Built</h2></div>
+      <div class="lab-coming-soon"><div class="lab-tag"><div class="lab-tag-dot"></div> More launching soon</div></div>
+    </div>
+    <div class="lab-grid reveal reveal-delay-1">
+      <div class="lab-card">
+        <div class="lab-card-num">Product 01 — Deployed</div>
+        <h3 class="lab-card-title">Finance<br/>Portal</h3>
+        <div class="lab-card-sub">A real-time company management portal that gives leadership a single surface to observe company health, identify operational gaps, and act before small problems become expensive ones. Visibility. Foresight. Control.</div>
+        <div class="lab-metrics"><div class="lab-metric"><div class="lab-metric-val">38<span>%</span></div><div class="lab-metric-label">Efficiency Gain</div></div><div class="lab-metric"><div class="lab-metric-val">22<span>%</span></div><div class="lab-metric-label">Satisfaction Up</div></div><div class="lab-metric"><div class="lab-metric-val">12.8<span>%</span></div><div class="lab-metric-label">Growth</div></div></div>
+        <div class="lab-features"><div class="lab-feature">Real-time operational health scoring</div><div class="lab-feature">Department-level performance tracking</div><div class="lab-feature">Predictive gap identification before escalation</div><div class="lab-feature">One-click action triggers for leadership</div></div>
+      </div>
+      <div class="lab-card">
+        <div class="lab-card-num">Product 02 — Deployed</div>
+        <h3 class="lab-card-title">AEGIS</h3>
+        <div class="lab-card-sub">Project management software rebuilt from the ground up for operations-heavy teams. Not another task list. A system that understands how your work actually flows — and keeps it moving without the manual overhead.</div>
+        <div class="lab-features" style="margin-top:0"><div class="lab-feature">Workflow-native task architecture (not generic boards)</div><div class="lab-feature">Intelligent dependency mapping and critical path tracking</div><div class="lab-feature">Team load balancing with AI recommendations</div><div class="lab-feature">Integrated reporting — no extra tool needed</div><div class="lab-feature">Built for operational teams, not just dev squads</div></div>
+      </div>
+    </div>
+    <div class="lab-card-soon reveal">
+      <div class="lab-card-bg"></div>
+      <div class="lab-teaser-inner">
+        <div class="lab-teaser-eyebrow">PRISM — Launching Soon</div>
+        <h3 class="lab-teaser-title">You have the data.<br/><span class="dim">You just can't hear what it's saying.</span></h3>
+        <div class="lab-teaser-body">You've got spreadsheets, CRM data, sales numbers, ops logs, support tickets. It's all there. But it's noise. What patterns are hiding in it? What's about to go wrong? What's the next move?<br/><br/><strong style="color:var(--text)">ZOVAC's AI Data Intelligence Layer is almost here.</strong> It doesn't just analyze your data — it speaks business strategy back to you. No data scientist required.</div>
+        <a href="#contact" class="lab-teaser-cta">Get Early Access →</a>
+      </div>
+      <div class="data-particles" aria-hidden="true" id="dataParticles"></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="reveal"><div class="section-label">In the Field</div><h2 class="section-title">Real Operations.<br/>Measured Outcomes.</h2></div>
+    <div class="case-grid">
+      <div class="case-card reveal">
+        <div class="case-tag">Case Study — Confidential Client</div>
+        <h3 class="case-title">Turning Operational Chaos Into Company Intelligence</h3>
+        <div class="case-desc">A growing services company was scaling fast — but its internal operations were not. Leadership lacked visibility into real-time company health. Small problems were escalating into expensive crises. Decisions were slow, reactive, and based on incomplete data.<br/><br/>ZOVAC mapped the full operational architecture, identified three core bottlenecks, and built a custom management portal that gave leadership a live pulse on every part of the business — and the ability to act on it immediately.</div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-val">38<span>%</span></div><div class="case-metric-label">Overall Efficiency</div></div>
+          <div class="case-metric"><div class="case-metric-val">22<span>%</span></div><div class="case-metric-label">Employee Satisfaction</div></div>
+          <div class="case-metric"><div class="case-metric-val">12.8<span>%</span></div><div class="case-metric-label">Business Growth</div></div>
+          <div class="case-metric"><div class="case-metric-val">6<span>wk</span></div><div class="case-metric-label">Time to Deploy</div></div>
+        </div>
+        <div class="case-features">
+          <div class="case-feature-item">Diagnosed 3 operational bottlenecks holding back scale</div>
+          <div class="case-feature-item">Built a real-time management portal tailored to their workflow</div>
+          <div class="case-feature-item">Integrated predictive alerts to catch gaps before escalation</div>
+          <div class="case-feature-item">Leadership decision time reduced from days to minutes</div>
+        </div>
+      </div>
+      <div class="case-right reveal reveal-delay-2">
+        <div class="case-quote"><div class="case-quote-text">"For the first time, I wasn't just reacting. I could see the whole company from one place and actually run it."</div><div class="case-quote-attr">— Founder, Services Company (Confidential)</div></div>
+        <div class="results-bar-section">
+          <div class="result-bar-item"><div class="result-bar-label"><span class="result-bar-name">Operational Efficiency</span><span class="result-bar-pct">+38%</span></div><div class="result-bar-track"><div class="result-bar-fill" style="--w: 76%"></div></div></div>
+          <div class="result-bar-item"><div class="result-bar-label"><span class="result-bar-name">Employee Satisfaction</span><span class="result-bar-pct">+22%</span></div><div class="result-bar-track"><div class="result-bar-fill" style="--w: 56%"></div></div></div>
+          <div class="result-bar-item"><div class="result-bar-label"><span class="result-bar-name">Business Growth</span><span class="result-bar-pct">+12.8%</span></div><div class="result-bar-track"><div class="result-bar-fill" style="--w: 42%"></div></div></div>
+        </div>
+        <div class="case-more"><div class="case-more-title">Working with a confidential client?</div><div class="case-more-text">We protect client identity by default. Real metrics, real outcomes — company details shared only with permission. On a call, we can share more specifics under NDA.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BELIEFS -->
+  <section id="beliefs">
+    <div class="reveal"><div class="section-label">What We Stand For</div><h2 class="section-title">Our Beliefs</h2><p class="section-subtitle">Not mission statements. These are the operating principles that govern every project we take on.</p></div>
+    <div class="beliefs-grid reveal reveal-delay-1">
+      <div class="belief-card"><div class="belief-num">01</div><h3 class="belief-title">Outcomes over outputs</h3><div class="belief-body">We don't measure success by lines of code shipped or slides presented. We measure it in efficiency gained, revenue unlocked, and decisions accelerated. If it doesn't move the needle, we didn't do our job.</div></div>
+      <div class="belief-card"><div class="belief-num">02</div><h3 class="belief-title">Diagnosis before prescription</h3><div class="belief-body">Prescribing a solution before understanding the problem is expensive. We spend significant time understanding your operational reality before a single line of code is written. This is how we avoid building the wrong thing.</div></div>
+      <div class="belief-card"><div class="belief-num">03</div><h3 class="belief-title">AI is a multiplier, not a product</h3><div class="belief-body">We don't sell AI. We use it — strategically — where it creates 10x leverage. The wrong AI in the wrong workflow creates noise. The right AI in the right place creates compounding advantage.</div></div>
+      <div class="belief-card"><div class="belief-num">04</div><h3 class="belief-title">Simplicity scales. Complexity breaks.</h3><div class="belief-body">Every system we design is built to be understood, operated, and expanded by your team. We don't create dependencies. We create capabilities. Simple, elegant systems outlast clever, complex ones.</div></div>
+      <div class="belief-card"><div class="belief-num">05</div><h3 class="belief-title">Speed without shortcuts</h3><div class="belief-body">We operate at startup speed without sacrificing structural integrity. Fast delivery means tight scoping, clear priorities, and relentless focus — not cutting corners on architecture or quality.</div></div>
+      <div class="belief-card"><div class="belief-num">06</div><h3 class="belief-title">We own the outcome</h3><div class="belief-body">We don't hand off a deliverable and disappear. We stay accountable to results. If the system isn't working, neither are we. This is what separates a real partner from a vendor.</div></div>
+    </div>
+    <div class="manifesto reveal"><div class="manifesto-text">"Businesses don't buy software. They don't buy AI. They buy <span class="red">operational freedom</span> — the ability to move faster, decide smarter, and scale without friction. <span class="red">That's what ZOVAC delivers.</span>"</div></div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--bg-2); border-top: 1px solid var(--border);">
+    <div class="reveal"><div class="section-label">Common Questions</div><h2 class="section-title">FAQ</h2></div>
+    <div class="faq-grid">
+      <div class="faq-left reveal"><div class="faq-sticky"><div class="faq-big-text">FAQ</div><div style="margin-top:2rem;font-size:0.85rem;color:var(--text-faint);line-height:1.8;">Have a question not covered here? <a href="mailto:zovac.ai@gmail.com" style="color:var(--red);text-decoration:none;">Send us an email →</a></div></div></div>
+      <div class="faq-list reveal reveal-delay-1">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What types of companies does ZOVAC work with?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">We work best with operations-heavy businesses — typically SMEs, scale-ups, and funded startups that have hit operational ceilings. If your company is growing but your internal systems aren't keeping up, that's precisely the gap we close. Industry-agnostic: we've worked in services, logistics, and internal operations contexts.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How is this different from hiring a dev agency or a consultant?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">A consultant diagnoses and leaves. A dev agency builds what you tell them. ZOVAC does both — we diagnose your operational problem ourselves, design the right system architecture, build it, integrate AI where it creates real leverage, and measure outcomes. You don't need to coordinate three vendors. You work with one team that owns the result end to end.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does an engagement typically look like?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Engagements start with a diagnostic call where we map your current operational landscape and identify the highest-leverage bottlenecks. From there we scope a project — typically a 4–8 week build cycle — or a retainer for ongoing operational intelligence. Pricing ranges from project-based ($10k–$50k) to monthly retainers ($2k–$10k), depending on scope.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do you use AI in everything you build?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">No — and that's intentional. AI is a tool, not a requirement. We use AI where it creates genuine leverage: predictive analytics, intelligent automation, decision support, pattern recognition in large datasets. Where simpler, more reliable engineering solves the problem better, we use that. We don't add AI for the sake of it.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How long does a typical project take?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Our flagship management portal case study deployed in 6 weeks. Most projects run 4–10 weeks depending on complexity. We operate at startup speed — tight scoping, clear priorities, rapid iterations — without sacrificing structural quality. You'll see working software in week 2, not week 8.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens after the project is delivered?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">We offer ongoing retainer arrangements for companies that want continuous operational intelligence — regular system audits, performance tracking, new feature development, and strategic guidance as your business scales. We don't disappear after launch.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is our data and information kept confidential?<div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely. We operate under NDA by default on all engagements. Client identity and operational data are protected. We only share case studies with explicit written permission, and even then we anonymize where preferred. You can review our full <a href="https://zovacai-cloud.github.io/Zovac_Privacy_Policy/" target="_blank" rel="noopener" style="color:var(--red);">Privacy Policy here</a>.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="section-label">Let's Talk</div>
+        <h2 class="contact-title">Ready to remove<br/>the <span class="accent">bottleneck?</span></h2>
+        <div class="contact-text">Start with a diagnostic call. 30 minutes. We'll map your biggest operational gap and tell you exactly how we'd approach it. No pitch deck. No pressure. Just clarity.</div>
+        <div class="contact-info">
+          <div class="contact-info-item"><div class="icon">✉</div><a href="mailto:zovac.ai@gmail.com">zovac.ai@gmail.com</a></div>
+          <div class="contact-info-item">
+            <div class="icon"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;color:var(--red)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <a href="https://www.linkedin.com/company/zovac/" target="_blank" rel="noopener">linkedin.com/company/zovac</a>
+          </div>
+        </div>
+        <div class="calendly-section">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/zovac-ai/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=E53935" style="min-width:320px;height:650px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+      </div>
+      <div class="contact-form-area reveal reveal-delay-2">
+        <div style="margin-bottom:2rem;">
+          <div class="section-label">Or Send a Message</div>
+          <div style="font-size:0.88rem;color:var(--text-faint);line-height:1.6;">Tell us about your operation. We'll respond within 24 hours.</div>
+        </div>
+        <form id="contactForm" action="https://formspree.io/f/xreygjva" method="POST">
+          <div class="form-row">
+            <div class="form-group"><label>Name *</label><input type="text" name="name" placeholder="Your full name" required /></div>
+            <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="Company name" /></div>
+          </div>
+          <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="your@company.com" required /></div>
+          <div class="form-group">
+            <label>I'm interested in</label>
+            <select name="interest">
+              <option value="" disabled selected>Select a service</option>
+              <option>Operational Diagnosis &amp; Consulting</option>
+              <option>Custom Software / System Build</option>
+              <option>AI Integration into Existing Workflow</option>
+              <option>Company Management Dashboard</option>
+              <option>Early Access — Data Intelligence Tool</option>
+              <option>Ongoing Retainer / Partnership</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Describe your biggest operational challenge *</label><textarea name="message" placeholder="What's slowing you down? Where does growth feel constrained?" required></textarea></div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary" id="submitBtn">Send Message →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">ZOVAC<span class="footer-logo-dot"></span></div>
+        <div class="footer-tagline">Operational Intelligence through AI and Custom Software. Diagnosis. Strategy. Implementation — end to end.</div>
+        <div class="footer-contact-line">
+          <a href="mailto:zovac.ai@gmail.com" class="footer-contact-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>zovac.ai@gmail.com</a>
+          <a href="https://www.linkedin.com/company/zovac/" target="_blank" rel="noopener" class="footer-contact-item"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        </div>
+      </div>
+      <div><div class="footer-col-title">Company</div><div class="footer-links"><a href="#problem">The Problem</a><a href="#process">How It Works</a><a href="#beliefs">Our Beliefs</a><a href="#compare">Why ZOVAC</a></div></div>
+      <div><div class="footer-col-title">Products</div><div class="footer-links"><a href="#lab">Finance Portal</a><a href="#lab">AEGIS PM Suite</a><a href="#lab">PRISM ↗ Soon</a></div></div>
+      <div><div class="footer-col-title">Connect</div><div class="footer-links"><a href="#results">Case Studies</a><a href="#faq">FAQ</a><a href="#contact">Book a Call</a><a href="mailto:zovac.ai@gmail.com">Email Us</a><a href="https://www.linkedin.com/company/zovac/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 ZOVAC. All rights reserved.</div>
+      <div class="footer-legal"><a href="https://zovacai-cloud.github.io/Zovac_Privacy_Policy/" target="_blank" rel="noopener">Privacy Policy</a><a href="mailto:zovac.ai@gmail.com">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Theme toggle (persists via localStorage) ── */
+    const html        = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const saved       = localStorage.getItem('zovac-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    themeToggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('zovac-theme', next);
+    });
+
+    /* ── Nav scroll ── */
+    const navbar      = document.getElementById('navbar');
+    const floatingCta = document.getElementById('floatingCta');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 60;
+      navbar.classList.toggle('scrolled', scrolled);
+      floatingCta.classList.toggle('visible', scrolled);
+    });
+
+    /* ── Mobile menu ── */
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', closeMenu);
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    /* ── Scroll reveal ── */
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ── Result bars ── */
+    const barObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('.result-bar-fill').forEach(b => setTimeout(() => b.classList.add('animated'), 300)); barObs.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    const barSection = document.querySelector('.results-bar-section');
+    if (barSection) barObs.observe(barSection);
+
+    /* ── FAQ ── */
+    function toggleFaq(el) {
+      const ans    = el.nextElementSibling;
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-question').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+      if (!isOpen) { el.classList.add('open'); ans.classList.add('open'); }
+    }
+
+    /* ── Data particles ── */
+    const dpc = document.getElementById('dataParticles');
+    if (dpc) { for (let i = 0; i < 48; i++) { const d = document.createElement('div'); d.className = 'dp'; d.style.setProperty('--d', `${Math.random() * 2}s`); d.style.setProperty('--h', Math.random().toFixed(2)); dpc.appendChild(d); } }
+
+    /* ── Formspree AJAX + popup ── */
+    const form      = document.getElementById('contactForm');
+    const popup     = document.getElementById('formPopup');
+    const submitBtn = document.getElementById('submitBtn');
+    if (form) {
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        submitBtn.textContent = 'Sending…';
+        submitBtn.disabled    = true;
+        try {
+          const res = await fetch('https://formspree.io/f/xreygjva', {
+            method:  'POST',
+            headers: { 'Accept': 'application/json' },
+            body:    new FormData(form)
+          });
+          if (res.ok) {
+            popup.textContent = '✓ Message received — we\'ll get back to you soon.';
+            popup.style.background = '';
+            popup.classList.add('show');
+            form.reset();
+            submitBtn.textContent = 'Message Sent ✓';
+            setTimeout(() => { popup.classList.remove('show'); submitBtn.textContent = 'Send Message →'; submitBtn.disabled = false; }, 5000);
+          } else { throw new Error(); }
+        } catch {
+          popup.textContent = 'Something went wrong. Please email us directly.';
+          popup.style.background = '#333';
+          popup.classList.add('show');
+          submitBtn.textContent = 'Send Message →';
+          submitBtn.disabled = false;
+          setTimeout(() => popup.classList.remove('show'), 5000);
+        }
+      });
+    }
+
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+    });
+
+    /* ── Counter animation ── */
+    function animateCounter(el, target, suf) {
+      let cur = 0; const inc = target / 60;
+      const t = setInterval(() => { cur += inc; if (cur >= target) { cur = target; clearInterval(t); } el.textContent = (Number.isInteger(target) ? Math.floor(cur) : cur.toFixed(1)) + suf; }, 20);
+    }
+    const heroObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { document.querySelectorAll('.stat-num').forEach(el => { const txt = el.textContent; const n = parseFloat(txt); const s = txt.replace(/[\d.]/g, ''); if (!isNaN(n)) animateCounter(el, n, s); }); heroObs.disconnect(); } });
+    }, { threshold: 0.5 });
+    const hs = document.querySelector('.hero-stats');
+    if (hs) heroObs.observe(hs);
+  </script>
+</body>
+</html>
