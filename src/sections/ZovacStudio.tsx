@@ -76,7 +76,7 @@ export default function ZovacStudio() {
               Powered by ZOVAC's proprietary automation engine. No login required to explore.
             </p>
             <a
-              href="https://script.google.com/macros/s/AKfycbz50OU0bR1ZtAXc1dJzVOxq2l1IyWMy4KJcxRrH5j4sHuvrLd1W89Aq0IsezCjzW_2s/exec"
+              href="https://script.google.com/macros/s/AKfycbxFPHYLnq3t-BakMUHguYjup_xB41MzmhbZYokCoNprScreAUFnst_OL-V77RYb4ARHqQ/exec"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-body text-xs uppercase tracking-[0.1em] text-[#E53935] hover:text-white transition-colors duration-300"
