@@ -62,7 +62,7 @@ export default function ZovacStudio() {
             {/* AppScript iframe */}
             <div className="w-full aspect-[16/10] md:aspect-[16/7] lg:aspect-[16/5]">
               <iframe
-                src="https://script.google.com/macros/s/AKfycbz50OU0bR1ZtAXc1dJzVOxq2l1IyWMy4KJcxRrH5j4sHuvrLd1W89Aq0IsezCjzW_2s/exec"
+                src="https://script.google.com/macros/s/AKfycbxFPHYLnq3t-BakMUHguYjup_xB41MzmhbZYokCoNprScreAUFnst_OL-V77RYb4ARHqQ/exec"
                 title="ZOVAC Studio"
                 className="w-full h-full border-0"
                 allow="clipboard-write; clipboard-read"
