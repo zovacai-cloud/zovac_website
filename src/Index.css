@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 4 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 252 87% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 4 90% 55%;
+    --radius: 0.25rem;
+    --signal-red: #E53935;
+    --void-black: #000000;
+    --pure-white: #FFFFFF;
+    --reactive-violet: #7A65F2;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Michroma', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  .logo-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #E53935;
+    border-radius: 50%;
+    margin-left: 4px;
+    margin-bottom: -1px;
+    flex-shrink: 0;
+  }
+  .text-signal-red {
+    color: #E53935;
+  }
+  .bg-signal-red {
+    background-color: #E53935;
+  }
+  .border-signal-red {
+    border-color: #E53935;
+  }
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-logo {
+    font-family: 'Michroma', sans-serif;
+  }
+  .font-serif-accent {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-serif-body {
+    font-family: 'Lora', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #E53935;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: #E53935;
+  color: #fff;
+}
