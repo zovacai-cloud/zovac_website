@@ -51,7 +51,13 @@ export default function Header() {
         </nav>
 
         <button
-          onClick={() => scrollTo('contact')}
+          onClick={() =>
+
+            window.location.href =
+
+             'https://script.google.com/macros/s/AKfycbxHdKFe2Sj5sJDTwG6_fiCehy3CXmCNR_Dw4Xbmcr29qZMofUYsK-Wf-Bbi73LDVWHOrA/exec'
+
+        }
           className="bg-[#E53935] text-white font-body text-xs font-medium uppercase tracking-[0.05em] px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition-all duration-300"
         >
           START A PROJECT
