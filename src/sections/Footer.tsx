@@ -50,7 +50,7 @@ export default function Footer() {
                 <Twitter className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com/zovac"
+                href="https://www.instagram.com/zovac_official?igsh=MWpzMWV4ZzBreHV4aw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#E53935] hover:text-[#E53935] transition-colors"
