@@ -34,14 +34,11 @@ export default function ZovacStudio() {
       <div className="max-w-6xl mx-auto">
         <div ref={contentRef}>
           <div className="mb-12 md:mb-16">
-            <span className="font-body text-xs uppercase tracking-[0.15em] text-[#E53935] mb-4 block">
-              Try It Now
-            </span>
-            <h2 className="font-display font-medium text-white text-4xl md:text-5xl lg:text-6xl tracking-[-0.03em] leading-tight max-w-3xl mb-4">
-              ZOVAC Studio
+            <h2 className="font-display font-medium text-white text-4xl md:text-5xl lg:text-6xl tracking-[-0.03em] leading-tight max-w-3xl">
+              ZOVAC <span className="text-[#E53935]">Studio</span>
             </h2>
-            <p className="font-body text-white/60 text-base md:text-lg max-w-2xl leading-relaxed">
-              Experience the power of intelligent automation firsthand. Our AI studio helps you explore what's possible for your business operations.
+            <p className="font-body text-white/60 text-base md:text-lg max-w-2xl leading-relaxed mt-4">
+              Experience the power of intelligent automation firsthand. No login required.
             </p>
           </div>
 
@@ -73,7 +70,7 @@ export default function ZovacStudio() {
 
           <div className="mt-8 flex items-center justify-between flex-wrap gap-4">
             <p className="font-body text-white/50 text-sm">
-              Powered by ZOVAC's proprietary automation engine. No login required to explore.
+              Powered by ZOVAC's proprietary automation engine.
             </p>
             <a
               href="https://script.google.com/macros/s/AKfycbxFPHYLnq3t-BakMUHguYjup_xB41MzmhbZYokCoNprScreAUFnst_OL-V77RYb4ARHqQ/exec"
