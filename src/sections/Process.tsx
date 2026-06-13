@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageSquare, Search, FileText, Hammer, TestTube, Rocket } from 'lucide-react';
@@ -43,6 +43,49 @@ const steps = [
     icon: Rocket,
   },
 ];
+
+function AnimatedNumber({ target, suffix = '', duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+            const startTime = Date.now();
+            const animate = () => {
+              const elapsed = Date.now() - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic
+              const eased = 1 - Math.pow(1 - progress, 3);
+              setCount(Math.floor(eased * target));
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              }
+            };
+            requestAnimationFrame(animate);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return (
+    <span ref={ref}>
+      {count}{suffix}
+    </span>
+  );
+}
 
 export default function Process() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -125,25 +168,31 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Stat highlight */}
+        {/* Stat highlight with animated numbers */}
         <div className="mt-24 md:mt-32 border-t border-white/10 pt-12 md:pt-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div className="text-center md:text-left">
-              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">30%</span>
+              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">
+                <AnimatedNumber target={30} suffix="%" />
+              </span>
               <p className="font-body text-white/60 text-sm">
                 Average operational cost reduction through automation (Deloitte study)
               </p>
             </div>
             <div className="text-center md:text-left">
-              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">29%</span>
+              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">
+                <AnimatedNumber target={29} suffix="%" />
+              </span>
               <p className="font-body text-white/60 text-sm">
                 Resource savings achieved for clients through intelligent system design
               </p>
             </div>
             <div className="text-center md:text-left">
-              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">Days</span>
+              <span className="font-display font-bold text-[#E53935] text-5xl md:text-6xl block mb-2">
+                <AnimatedNumber target={100} suffix="+" />
+              </span>
               <p className="font-body text-white/60 text-sm">
-                Reduced to hours — the time transformation we deliver for manual processes
+                Hours saved per month for clients through workflow automation
               </p>
             </div>
           </div>
