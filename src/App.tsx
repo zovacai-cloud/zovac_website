@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Header from './sections/Header';
 import Hero from './sections/Hero';
@@ -13,6 +13,9 @@ import Footer from './sections/Footer';
 import CustomCursor from './sections/CustomCursor';
 
 export default function App() {
+  const [selectedService, setSelectedService] = useState<string>('');
+  const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.1,
@@ -38,14 +41,32 @@ export default function App() {
       <main>
         <Hero />
         <Manifesto />
-        <Services />
+        <Services 
+          flippedCardIndex={flippedCardIndex}
+          setFlippedCardIndex={setFlippedCardIndex}
+          onSelectService={(service) => {
+            setSelectedService(service);
+            const contactEl = document.getElementById('contact');
+            if (contactEl) {
+              contactEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        />
         <Process />
         <CaseStudies />
         <Founder />
         <ZovacStudio />
-        <Contact />
+        <Contact selectedService={selectedService} />
       </main>
-      <Footer />
+      <Footer 
+        onSelectServiceCard={(index) => {
+          setFlippedCardIndex(index);
+          const servicesEl = document.getElementById('services');
+          if (servicesEl) {
+            servicesEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+      />
     </div>
   );
 }
