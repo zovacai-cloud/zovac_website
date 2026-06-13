@@ -1,6 +1,10 @@
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  onSelectServiceCard: (index: number) => void;
+}
+
+export default function Footer({ onSelectServiceCard }: FooterProps) {
   return (
     <footer className="bg-black border-t border-white/10 py-12 md:py-16 px-6 lg:px-10">
       <div className="max-w-6xl mx-auto">
@@ -19,11 +23,14 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-medium text-white text-sm uppercase tracking-[0.1em] mb-4">Services</h4>
             <ul className="space-y-2">
-              {['Workflow Automation', 'AI Integration', 'Custom ERP', 'CRM Systems', 'Data Analytics', 'HR & Compliance'].map((s) => (
+              {['System Architecture', 'Custom Software', 'Workspace Automations'].map((s, i) => (
                 <li key={s}>
-                  <span className="font-body text-white/50 text-sm hover:text-[#E53935] transition-colors cursor-default">
+                  <button
+                    onClick={() => onSelectServiceCard(i)}
+                    className="font-body text-white/50 text-sm hover:text-[#E53935] transition-colors text-left focus:outline-none"
+                  >
                     {s}
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -50,7 +57,7 @@ export default function Footer() {
                 <Twitter className="w-4 h-4" />
               </a>
               <a
-                href="https://www.instagram.com/zovac_official?igsh=MWpzMWV4ZzBreHV4aw=="
+                href="https://instagram.com/zovac"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#E53935] hover:text-[#E53935] transition-colors"
